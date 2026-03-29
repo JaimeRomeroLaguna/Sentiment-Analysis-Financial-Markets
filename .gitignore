@@ -1,0 +1,7 @@
+.worktrees/
+mlruns/
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+data/*.csv
+data/*.xlsx
