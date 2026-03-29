@@ -5,3 +5,4 @@ __pycache__/
 .ipynb_checkpoints/
 data/*.csv
 data/*.xlsx
+mlflow.db
