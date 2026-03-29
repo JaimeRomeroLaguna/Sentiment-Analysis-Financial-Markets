@@ -1,0 +1,16 @@
+name: financial-sentiment
+
+conda_env: conda.yaml
+
+entry_points:
+  finbert:
+    parameters:
+      dataset: {type: str, default: "data/data.csv"}
+      max_length: {type: int, default: 512}
+    command: "python src/finbert/evaluate.py --dataset {dataset} --max_length {max_length}"
+
+  dictionary:
+    parameters:
+      dataset: {type: str, default: "data/data.csv"}
+      threshold: {type: float, default: 0.3}
+    command: "python src/dictionary/evaluate.py --dataset {dataset} --threshold {threshold}"
