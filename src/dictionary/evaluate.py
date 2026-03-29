@@ -1,6 +1,9 @@
 import argparse
 import os
+import sys
 import tempfile
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 import mlflow
 import mlflow.pyfunc
@@ -60,7 +63,7 @@ def main(dataset, threshold):
         mlflow.pyfunc.log_model(
             artifact_path="model",
             python_model=DictionaryModel(pos_dict, neg_dict, threshold),
-            code_path=["src"],
+            code_paths=["src"],
             registered_model_name="dictionary-sentiment",
         )
 

@@ -1,6 +1,9 @@
 import argparse
 import os
+import sys
 import tempfile
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 import mlflow
 import mlflow.transformers
@@ -48,6 +51,7 @@ def main(dataset, max_length):
             artifact_path="model",
             task="text-classification",
             registered_model_name="finbert-sentiment",
+            pip_requirements=["transformers", "torch"],
         )
 
         run_id = mlflow.active_run().info.run_id
